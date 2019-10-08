@@ -1,0 +1,41 @@
+corpus1 = '/Users/orchid/kkl/train.txt'
+FILE1 = open(corpus1,'r',encoding='utf-8').read()
+len(FILE1)
+FILE1[:200]
+train_sentences=''
+cnt=0
+for line in FILE1.split('\n'):
+    if(cnt>=10000):
+        break
+    train_sentences=train_sentences+(line.split('++$++')[2].strip())
+    cnt=cnt+1
+test_sentences=''
+cnt=0
+for line in FILE1.split('\n'):
+    if(cnt>4000 and cnt<=5000):
+        test_sentences=test_sentences+(line.split('++$++')[2].strip())
+    cnt=cnt+1
+print(test_sentences)
+###########################
+from collections import Counter
+def two_gram_model(train_sentence,test_sentence):
+    # 2-gram langauge model
+    tokens = cut(train_sentence)
+    words_count = Counter(tokens)
+
+    _2_gram_words = [tokens[i] + tokens[i+1] for i in range(len(tokens)-1)]
+    _2_gram_word_counts = Counter(_2_gram_words)
+    
+    probability = 1
+    tokens1 = cut(train_sentence)
+    for i in range(len(tokens1)-1):
+        word = tokens1[i]
+        next_word = tokens1[i+1]
+        
+        _two_gram_c = get_gram_count(word+next_word, _2_gram_word_counts)
+        _one_gram_c = get_gram_count(next_word, words_count)
+        pro =  _two_gram_c / _one_gram_c
+        
+        probability *= pro
+    
+    return probability
