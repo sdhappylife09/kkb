@@ -1,0 +1,34 @@
+def generate(grammar_rule, target):
+    if target in grammar_rule: # names 
+        candidates = grammar_rule[target]  # ['name names', 'name']
+        #print('candidates is:',candidates)
+        candidate = random.choice(candidates) #'name names', 'name'
+        #print('candidate is:',candidate)
+        return ''.join(generate(grammar_rule, target=c.strip()) for c in candidate.split())
+    else:
+        return target
+
+def generate_n(grammar_rule, target,n=1):
+    cnt=0
+    print(n)
+    sentences=[]
+    while(cnt<n):
+        sentence = generate(grammar_rule, target=target)
+        sentences.append(sentence)
+        cnt=cnt+1
+    return sentences
+    
+    def get_generation_by_gram_n(grammar_str: str, target, stmt_split='=', or_split='|', n=2):
+    rules = dict() # key is the @statement, value is @expression
+    for line in grammar_str.split('\n'):
+        if not line: continue
+        # skip the empty line
+      #  print(line)
+        stmt, expr = line.split(stmt_split)
+    
+        rules[stmt.strip()] = expr.split(or_split)
+
+    print(rules)
+    generated = generate_n(rules, target=target, n=n)
+    
+    return generated
