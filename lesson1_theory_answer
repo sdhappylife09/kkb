@@ -1,0 +1,33 @@
+0. Can you come up out 3 sceneraies which use AI methods?
+Ans: 
+1)Personalized movie recommendation
+2)Auto-driving
+3)Automatic language transation of Google
+
+1. How do we use Github; Why do we use Jupyter and Pycharm;
+Ans: Share our code by using Github. To improve python development efficiency.
+
+2. What's the Probability Model?
+Ans: By using the probability of one single word or co-occurrence-words to evaluate the reasonable level of a sentence.
+
+3. Can you came up with some sceneraies at which we could use Probability Model?
+Ans: Intelligent customer-sevice speech recognition.
+
+4. Why do we use probability and what's the difficult points for programming based on parsing and pattern match?
+Ans: To evaluate the reasonable level of words sequence of a sentence.
+The difficult points are: diverse encoding format , diverse text format and diverse word composition.
+
+5. What's the Language Model;
+Ans: The model to generate different sentences.
+
+6. Can you came up with some sceneraies at which we could use Language Model?
+Ans: Automatic novel or poem writing.
+
+7. What's the 1-gram language model;
+Ans: evaluatie by using the probability of only one word
+
+8. What's the disadvantages and advantages of 1-gram language model;
+Ans: Ddvantage is simple and high performance. Disadvantage lies on low accuracy.
+
+9. What't the 2-gram models;
+Ans: evaluatie by using the probability of two sequential words
