@@ -1,0 +1,9 @@
+def generate_best():
+    n=10
+    test_sentences = get_generation_by_gram_n(children_grammer, target='children_say', stmt_split='=>',n=5)
+    probabilities = []
+    for test_sentence in test_sentences:
+        probability = two_gram_model(train_sentences,test_sentence)
+        probabilities.append((test_sentence,probability))
+    probabilities_rank = sorted(probabilities,key=lambda x: x[1],reverse=True)
+    return probabilities_rank[0]
